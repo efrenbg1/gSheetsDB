@@ -1,0 +1,1 @@
+var db = {"id": "value", "id2": ["value1", "value2", "value3"]};
