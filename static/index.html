@@ -53,12 +53,12 @@
                     <div id="alert"></div>
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="data-tab" data-toggle="pill" href="#data" role="tab"
-                                aria-controls="data" aria-selected="false">Fill data</a>
+                            <a class="nav-link active" id="data-tab" data-toggle="pill" href="#data" role="tab"
+                                aria-controls="data" aria-selected="true">Fill data</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link active" id="link-tab" data-toggle="pill" href="#link" role="tab"
-                                aria-controls="link" aria-selected="true">Get link</a>
+                            <a class="nav-link" id="link-tab" data-toggle="pill" href="#link" role="tab"
+                                aria-controls="link" aria-selected="false">Get link</a>
                         </li>
                         <li class="nav-item" role="presentation">
                             <a class="nav-link" id="usage-tab" data-toggle="pill" href="#usage" role="tab"
@@ -74,7 +74,7 @@
                         </li>
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade" id="data" role="tabpanel" aria-labelledby="data-tab">
+                        <div class="tab-pane fade show active" id="data" role="tabpanel" aria-labelledby="data-tab">
                             <p>
                                 <b>1.</b> Go to <a class="text-success" href="https://docs.google.com/spreadsheets"
                                     target="_blank">Google
@@ -101,7 +101,7 @@
                                     style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;"></p>
                             </div>
                         </div>
-                        <div class="tab-pane fade show active" id="link" role="tabpanel" aria-labelledby="link-tab">
+                        <div class="tab-pane fade" id="link" role="tabpanel" aria-labelledby="link-tab">
                             <p>
                                 <b>4.</b> Go to <a href="javascript:" class="badge badge-light">File</a> > <a
                                     href="javascript:" class="badge badge-light">Publish to the web</a>
@@ -119,6 +119,14 @@
                                 <input type="url" class="form-control"
                                     placeholder="https://docs.google.com/spreadsheets/d/e/..." id="convertURL">
                                 <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button"
+                                        onclick="$('#convertURL')[0].value = ''">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x mb-1"
+                                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                                        </svg>
+                                    </button>
                                     <button class="btn btn-primary" type="button" onclick="convert()">Convert</button>
                                 </div>
                             </div>
@@ -133,7 +141,7 @@
                                 <p class="mb-0 pl-2 bg-light">
                                     &lt;<span style="color: #268bd2;">script</span> <span
                                         style="color: #b58900;">src</span>=<span style="color: #2aa198;"
-                                        id="linkScript">"https://db.10x.es/cache/[...].js"</span>&gt;&lt;/<span
+                                        id="linkScript">"http://domain.com/[...].js"</span>&gt;&lt;/<span
                                         style="color: #268bd2;">script</span>&gt;
                                 </p>
                                 <p class="mb-0 pb-2"
@@ -173,11 +181,73 @@
                                 <input type="text" class="form-control"
                                     placeholder="https://docs.google.com/spreadsheets/d/e/..." id="refreshURL">
                                 <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button"
+                                        onclick="$('#refreshURL')[0].value = ''">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x mb-1"
+                                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                                        </svg>
+                                    </button>
                                     <button class="btn btn-primary" type="button" onclick="refresh()">Refresh</button>
                                 </div>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="about" role="tabpanel" aria-labelledby="about-tab">
+                            <h5>🤔 Why:</h5>
+                            <p>
+
+                            </p>
+                            <p>
+                                <img src="img/github.io.svg" height="18"> does not have support for any backend.
+                                Furthermore restrictions in <b>CORS</b> policies render impossible to access any
+                                external
+                                backend. By
+                                hosting a single instance of <a href="https://github.com/efrenbg1/gSheetsDB"
+                                    target="_blank">gSheetDB</a>, one could bring to
+                                thousands of sites an
+                                accessible and interactive database.
+                            </p>
+                            <br>
+                            <h5>🔧 Usages:</h5>
+                            <p>Ideally the best use case scenario is <b>small static sites</b> with the need of an small
+                                and <b>read-only</b> database. With enough JavaScript one could recreate basic <img
+                                    src="img/presta.png" height="22">
+                                or <img class="mx-n2" src="img/wordpress.png" height="32"> sites.</p>
+                            <br>
+                            <h5>🕵️ Security:</h5>
+                            <p>
+                                &rarr; All the .js are accessible from anywhere, so make sure not to include <b>sensible
+                                    information!</b>
+                            </p>
+                            <p>
+                                &rarr; This server saves <b>ONLY</b> the .js file containing your data, which is
+                                publicly
+                                accessible. The Google Sheet URL is
+                                only stored in your browser to facilitate the refresh process.
+                            </p>
+                            <p>
+                                &rarr; Furthermore, the name of the .js file is the <b>SHA1</b> hash of the URL,
+                                rendering
+                                impossible to extract the URL from it.
+                            </p>
+                            <br>
+                            <h5>📄 Source:</h5>
+                            <p>All the source code an info regarding the installation process be found under my <a
+                                    href="https://github.com/efrenbg1/gSheetsDB">GitHub repository</a>:</p>
+                            <img src="img/socialcoding.jpg" class="rounded mx-auto d-block mb-3" width="350"
+                                onclick="window.open('https://github.com/efrenbg1/gSheetsDB', '_blank')">
+                            <br>
+                            <h5>☠️ Licence:</h5>
+                            <p>
+                                Copyright © 2020 Efrén Boyarizo <a href="mailto:efren@boyarizo.es"
+                                    target="_blank">efren@boyarizo.es</a>
+                                <br>
+                                This work is free. You can redistribute it and/or modify it under the terms of the Do
+                                What The Fuck You Want To Public License, Version 2, as published by Sam Hocevar. See
+                                <a href="http://www.wtfpl.net/" target="_blank">http://www.wtfpl.net/</a> for more
+                                details.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -197,12 +267,13 @@
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
     <script>
+        $('#linkScript')[0].innerText = `"` + location.href + `[...].js"`;
         var uri = window.localStorage.getItem('uri');
-        var path = window.localStorage.getItem('path');
+        var file = window.localStorage.getItem('file');
         try {
-            if (uri && path) {
+            if (uri && file) {
                 $('#refreshURL')[0].value = atob(uri);
-                $('#linkScript')[0].innerText = `"https://db.10x.es/` + path + `"`;
+                $('#linkScript')[0].innerText = `"` + location.href + file + `"`;
                 $('#refresh-tab').tab('show');
             }
         } catch (e) {
@@ -214,21 +285,21 @@
         function refresh() {
             generate($('#refreshURL')[0].value);
         }
-        function generate(id) {
-            id = btoa(id);
-            if (!id.length) return;
+        function generate(spreadsheet) {
+            spreadsheet = btoa(spreadsheet);
+            if (!spreadsheet.length) return;
             let req = new XMLHttpRequest();
-            var url = '/generate?url=' + id;
+            var url = '/generate?url=' + spreadsheet;
             req.open('GET', url, true);
             req.responseType = 'text';
             req.onreadystatechange = function () {
                 if (req.readyState == 4) {
                     if (req.status == 200) {
-                        $('#linkScript')[0].innerText = `"https://db.10x.es/` + req.response + `"`;
+                        $('#linkScript')[0].innerText = `"` + location.href + req.response + `"`;
                         $('#alert')[0].innerHTML = success;
                         $('#usage-tab').tab('show');
-                        window.localStorage.setItem('uri', id);
-                        window.localStorage.setItem('path', req.response);
+                        window.localStorage.setItem('uris', spreadsheet);
+                        window.localStorage.setItem('file', req.response);
                     }
                     if (req.status == 400) {
                         $('#alert')[0].innerHTML = notfound;
@@ -241,6 +312,9 @@
                     }
                     if (req.status == 418) {
                         $('#alert')[0].innerHTML = teapot;
+                    }
+                    if (req.status == 413) {
+                        $('#alert')[0].innerHTML = toolarge;
                     }
                     document.body.scroll({ top: 0, left: 0, behavior: 'smooth' });
                     console.log(req.status, req.response);
@@ -261,15 +335,21 @@
         <span aria-hidden="true">&times;</span>
     </button>
 </div>`;
-        var notfound = `<div class="alert alert-danger alert-dismissible fade show" role="alert" id="notfound">
+        var notfound = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
     The server could not find your spreadsheet! Make sure the URL is correct and that it has been
-    shared publicly.
+    shared publicly
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>`;
-        var teapot = `<div class="alert alert-warning alert-dismissible fade show" role="alert" id="notfound">
-    Can't refresh spreadsheet! To preserve bandwidth refresh can only be made every <strong>2 minutes</strong>.
+        var teapot = `<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    Can't refresh spreadsheet! To preserve bandwidth refresh can only be made every <strong>2 minutes</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>`;
+        var toolarge = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    The spreadsheet is too large! To preserve bandwidth the maximum size is <strong>1 MB</strong>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
