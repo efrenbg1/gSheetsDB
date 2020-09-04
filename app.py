@@ -58,10 +58,10 @@ def gen():
 
     # Check if cache already exists and that it has not been modified for more than 2 minutes
     if os.path.isfile(path):
-        # if(time.time() - os.path.getmtime(path)) > 120:
-        os.remove(path)
-        # else:
-        #    return "418 (I'm a teapot)", 418
+        if(time.time() - os.path.getmtime(path)) > 120:
+            os.remove(path)
+        else:
+            return "418 (I'm a teapot)", 418
 
     try:
         r = requests.get(url, stream=True, timeout=1)

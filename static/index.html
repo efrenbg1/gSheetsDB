@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>gSheetsDB</title>
     <style>
         body {
             background-image: linear-gradient(to bottom right, #0087F9, #273B54);
@@ -298,7 +298,7 @@
                         $('#linkScript')[0].innerText = `"` + location.href + req.response + `"`;
                         $('#alert')[0].innerHTML = success;
                         $('#usage-tab').tab('show');
-                        window.localStorage.setItem('uris', spreadsheet);
+                        window.localStorage.setItem('uri', spreadsheet);
                         window.localStorage.setItem('file', req.response);
                     }
                     if (req.status == 400) {
